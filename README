@@ -3,11 +3,11 @@ Step 2: Add new domain name (*Important the domain name you type in will be your
 Step 3: Verify Domain by uploading the html file Google gives you
 Step 4: Generate a public certificate (http://code.google.com/apis/gdata/docs/auth/authsub.html#Registered)
 Step 5: Upload myrsacert.pem to Google
-Step 6: Google will now show you your cosumer_key and consumer_secret
+Step 6: Google will now show you your consumer_key and consumer_secret
 Step 7: Add the contents of constants.php to the bottom of your constants.php that comes with CodeIgniter
 Step 8: Make sure to change the values of (constants.php):
 	- YOUTUBE_CONSUMER_KEY
 	- YOUTUBE_CONSUMER_SECRET
 	- YOUTUBE_OAUTH_CALLBACK
-Step 9: Add youtube.php to controller folder, Add OAuth.php and YouTubeOAuth.php (just a modified version of Abraham's OAuth)
+Step 9: Add youtube.php to controller folder, Add OAuth.php and YoutubeOAuth.php (YoutubeOAuth.php is a modified version of Abraham's Twitter OAuth: https://github.com/abraham/twitteroauth)
 Step 10: Go to http://www.yourdomain.com/youtube/request_token (if you are using .htaccess) or  http://www.yourdomain.com/index.php/youtube/request_token (if you are NOT using .htaccess)
