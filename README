@@ -23,6 +23,5 @@ $this->config->load('youtubeoauth');
 $this->config->set_item('youtube_oauth_token', $youtube_oauth_token);
 $this->config->set_item('youtube_oauth_token_secret', $youtube_oauth_token_secret);
 $connection = new YoutubeOAuth();
-$content = $connection->get('http://gdata.youtube.com/feeds/api/users/default?v=2');
-$xml = simplexml_load_string($content);
-var_dump($xml);
+$content = $connection->get('http://gdata.youtube.com/feeds/api/users/default?v=2&alt=json');
+var_dump($content);

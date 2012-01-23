@@ -3,8 +3,6 @@
  * Abraham Williams (abraham@abrah.am) http://abrah.am
  *
  * The first PHP Library to support OAuth for Twitter's REST API.
- *
- * Modified by Jason Gendron (jgendr2[AT]gmail[DOT]com) http://rewebbing.com
  */
 
 /* Load OAuth lib. You can find it at http://oauth.net */
@@ -26,6 +24,10 @@ class YoutubeOAuth {
   public $connecttimeout = 30; 
   /* Verify SSL Cert. */
   public $ssl_verifypeer = FALSE;
+  /* Respons format. */
+  public $format = 'json';
+  /* Decode returned json data. */
+  public $decode_json = TRUE;
   /* Contains the last HTTP headers returned. */
   public $http_info;
   /* Set the useragnet. */
@@ -153,6 +155,9 @@ class YoutubeOAuth {
    */
   function get($url, $parameters = array()) {
     $response = $this->oAuthRequest($url, 'GET', $parameters);
+    if ($this->format === 'json' && $this->decode_json) {
+      return json_decode($response);
+    }
     return $response;
   }
   
@@ -161,6 +166,9 @@ class YoutubeOAuth {
    */
   function post($url, $parameters = array()) {
     $response = $this->oAuthRequest($url, 'POST', $parameters);
+    if ($this->format === 'json' && $this->decode_json) {
+      return json_decode($response);
+    }
     return $response;
   }
 
@@ -169,6 +177,9 @@ class YoutubeOAuth {
    */
   function delete($url, $parameters = array()) {
     $response = $this->oAuthRequest($url, 'DELETE', $parameters);
+    if ($this->format === 'json' && $this->decode_json) {
+      return json_decode($response);
+    }
     return $response;
   }
 
