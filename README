@@ -1,5 +1,5 @@
 ***IMPORTANT***
-In order to use the following code you need to do 1 important thing in your CodeIgniter config/autoload.php file!
+In order to use the following code you need to do one very important thing in your CodeIgniter config/autoload.php file!
 Make sure to autoload the session and  YoutubeOAuth libraries
 example: $autoload['libraries'] = array('session','YoutubeOAuth');
 ***STEPS***
