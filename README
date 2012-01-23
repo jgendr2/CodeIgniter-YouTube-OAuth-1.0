@@ -16,3 +16,13 @@ Step 8: Make sure to change the values of (constants.php):
 	- YOUTUBE_OAUTH_CALLBACK
 Step 9: Add youtube.php to controller folder, Add OAuth.php and YoutubeOAuth.php (YoutubeOAuth.php is a modified version of Abraham's Twitter OAuth: https://github.com/abraham/twitteroauth)
 Step 10: Go to http://www.yourdomain.com/youtube/request_token (if you are using .htaccess) or  http://www.yourdomain.com/index.php/youtube/request_token (if you are NOT using .htaccess)
+***USAGE***
+After getting the oauth_token and oauth_token_secret save these values for the user in your database
+To authenticate as this user load $youtube_oauth_token and $youtube_oauth_token_secret (example below):
+$this->config->load('youtubeoauth');
+$this->config->set_item('youtube_oauth_token', $youtube_oauth_token);
+$this->config->set_item('youtube_oauth_token_secret', $youtube_oauth_token_secret);
+$connection = new YoutubeOAuth();
+$content = $connection->get('http://gdata.youtube.com/feeds/api/users/default?v=2');
+$xml = simplexml_load_string($content);
+var_dump($xml);
